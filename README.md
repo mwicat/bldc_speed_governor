@@ -16,9 +16,10 @@ Outputs:
 
 ```mermaid
 graph LR
-    mcu[microcontroller] -- torque command --> board[driver board]
-    board -- motor speed --> mcu
-    user -- speed command --> mcu
+    mcu[microcontroller] -- torque command --> driver[driver board]
+    driver -- motor speed --> mcu
+    user[fa:fa-user user] -- speed command --> mcu
+    driver -- power --> motor((fa:fa-gear motor))
 ```
 
 ## Hardware parts
