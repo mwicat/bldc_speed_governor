@@ -17,7 +17,7 @@ double pidreg_compute(pidreg_state_t* pidreg_state, pidreg_config_t* pidreg_conf
     double p_term = pidreg_config->Kp * error;
 
     pidreg_state->integral_sum += pidreg_config->Ki * error;
-    pidreg_state->integral_sum = pid_constrain(
+    pidreg_state->integral_sum = PID_CONSTRAIN(
         pidreg_state->integral_sum,
         pidreg_config->output_min,
         pidreg_config->output_max);
@@ -26,10 +26,9 @@ double pidreg_compute(pidreg_state_t* pidreg_state, pidreg_config_t* pidreg_conf
 
     double d_term = -pidreg_config->Kd * sensor_diff;
     
-    //double actuator = p_term + i_term + d_term;
-    double actuator = p_term + i_term;
+    double actuator = p_term + i_term + d_term;
 
-    actuator = pid_constrain(
+    actuator = PID_CONSTRAIN(
         actuator,
         pidreg_config->output_min,
         pidreg_config->output_max);

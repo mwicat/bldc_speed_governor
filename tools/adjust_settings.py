@@ -33,7 +33,7 @@ args = [
     '-C',
     'D1=fg,D0=pwm',
     '-P',
-    'timing:data=fg:edge=rising',
+    'timing:data=fg:edge=rising:avg_period=5',
     '-P',
     'pwm:data=pwm',
     '-A',
@@ -402,6 +402,7 @@ def main():
         'Speed Y Max',
         int=True,
         bounds=[0, 10000],
+        step=10,
         value=1000
         )
     speed_y_max_spinbox.sigValueChanged.connect(set_speed_y_max)
@@ -415,6 +416,7 @@ def main():
         'Speed Y Min',
         int=True,
         bounds=[0, 10000],
+        step=10,
         value=0
         )
     speed_y_min_spinbox.sigValueChanged.connect(set_speed_y_min)
@@ -430,6 +432,7 @@ def main():
         'PWM Y Max',
         int=True,
         bounds=[0, 10000],
+        step=10,
         value=1000
         )
     pwm_y_max_spinbox.sigValueChanged.connect(set_pwm_y_max)
@@ -443,6 +446,7 @@ def main():
         'PWM Y Min',
         int=True,
         bounds=[0, 10000],
+        step=10,
         value=0
         )
     pwm_y_min_spinbox.sigValueChanged.connect(set_pwm_y_min)

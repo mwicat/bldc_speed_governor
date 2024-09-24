@@ -7,7 +7,7 @@ extern "C" {
 
 #include <stdlib.h>
 
-#define pid_constrain(amt,low,high) ((amt)<(low)?(low):((amt)>(high)?(high):(amt)))
+#define PID_CONSTRAIN(amt,low,high) ((amt)<(low)?(low):((amt)>(high)?(high):(amt)))
 
 typedef struct {
     double Kp;
